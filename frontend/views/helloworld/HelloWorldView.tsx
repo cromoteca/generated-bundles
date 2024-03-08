@@ -1,11 +1,15 @@
 import { Button } from '@hilla/react-components/Button.js';
 import { Notification } from '@hilla/react-components/Notification.js';
 import { TextField } from '@hilla/react-components/TextField.js';
-import { HelloWorldService } from 'Frontend/generated/endpoints.js';
-import { useState } from 'react';
+import { HelloWorldService, TranslationService } from 'Frontend/generated/endpoints.js';
+import { useEffect, useState } from 'react';
 
 export default function HelloWorldView() {
   const [name, setName] = useState('');
+
+  useEffect(() => {
+    TranslationService.generateTranslations().then(() => { });
+  }, []);
 
   return (
     <>
